@@ -5,6 +5,17 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     // Metadata.
+    _: {
+      pluck: function (elements, prop) {
+        var result = [];
+        for (var i = 0; i < elements.length; i++) {
+          if (elements[i][prop]) {
+            result.push(elements[i][prop]);
+          }
+        }
+        return result;
+      }
+    },
     pkg: grunt.file.readJSON('slotmachine.jquery.json'),
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
