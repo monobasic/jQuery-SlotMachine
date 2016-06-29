@@ -1,9 +1,8 @@
-/*! SlotMachine - v3.0.1 - 2016-03-03
-* https://github.com/josex2r/jQuery-SlotMachine
-* Copyright (c) 2016 Jose Luis Represa; Licensed MIT */
+/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>
+<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27,7 +26,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         FX_GRADIENT = 'slotMachineGradient',
         FX_STOP = FX_GRADIENT;
 
-    var Timer = (function () {
+    var Timer = function () {
         function Timer(cb, delay) {
             _classCallCheck(this, Timer);
 
@@ -47,9 +46,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _createClass(Timer, [{
             key: '_start',
             value: function _start() {
-                this.timer = setTimeout((function cb() {
+                this.timer = setTimeout(function cb() {
                     this.cb.call(this);
-                }).bind(this), this.delay);
+                }.bind(this), this.delay);
             }
         }, {
             key: 'cancel',
@@ -92,9 +91,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]);
 
         return Timer;
-    })();
+    }();
 
-    var SlotMachine = (function () {
+    var SlotMachine = function () {
         function SlotMachine(element, options) {
             _classCallCheck(this, SlotMachine);
 
@@ -510,7 +509,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var delay = this.settings.delay / 4,
                     $elements = this.$slot.add(this.$tiles).add(this._$fakeFirstTile).add(this._$fakeLastTile);
 
-                this.raf((function cb() {
+                this.raf(function cb() {
                     this._fxClass = FX_SPEED;
 
                     if (FX_SPEED === FX_STOP) {
@@ -518,7 +517,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } else {
                         $elements.addClass(FX_GRADIENT);
                     }
-                }).bind(this), delay);
+                }.bind(this), delay);
             }
         }, {
             key: 'delay',
@@ -537,7 +536,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }]);
 
         return SlotMachine;
-    })();
+    }();
 
     function _getInstance(element, options) {
         var machine = void 0;
